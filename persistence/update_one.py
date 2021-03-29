@@ -30,7 +30,8 @@ def get_bot_details_from_user():
 def update_bot_in_db(data, bot_id):
     db = sqlite3.connect("../persistence/sqlite/bots.db")
     cursor = db.cursor()
-    sql = "UPDATE bots SET " + str(data[0]) + " = " + str(data[1]) + " WHERE id = " + bot_id
+    #sql = "UPDATE bots SET " + str(data[0]) + " = " + str(data[1]) + " WHERE id = " + bot_id
+    sql = f"UPDATE bots SET {data[0]} = {data[1]} WHERE id = {bot_id}"
     # values = [data[0], data[1], bot_id]
     cursor.execute(sql)
     db.commit()
